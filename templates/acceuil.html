@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Colored Design - Accueil</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+    #conteneur {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #header {
+        text-align: center;
+    }
+    #header a {
+        text-decoration: none;
+        color: #333;
+    }
+    #menu {
+        list-style-type: none;
+        padding: 0;
+        text-align: center;
+    }
+    #menu li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+    #menu li a {
+        text-decoration: none;
+        color: #333;
+        display: inline-block; /* Pour aligner l'image et le texte */
+        vertical-align: top; /* Pour aligner l'image et le texte */
+    }
+    #menu li img {
+        display: block;
+        width: 100px; /* Taille de l'image */
+        height: 100px; /* Taille de l'image */
+        margin-bottom: 5px; /* Espacement entre l'image et le texte */
+        border-radius: 50%; /* Pour arrondir l'image */
+    }
+    #contenu {
+        padding: 20px 0;
+    }
+    #footer {
+        text-align: center;
+        color: #666;
+    }
+</style>
+</head>
+<body>
+    <div id="conteneur"> 
+        <h1 id="header"><a href="#" title="Colored Design - Accueil"><span>Page d'Accueil</span></a></h1>
+        <nav>
+            <ul id="menu">
+                <li><a href="/magasin/"><img src="media/magasin.png" > Magasin</a></li>
+                <li><a href="/blog/"><img src="media/blog.png" > Blog</a></li>
+                <li><a href="/jeux/"><img src="media/jeux.png" > Jeux</a></li>
+                <li><a href="/admin/"><img src="media/admin.png" > Admin</a></li> 
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

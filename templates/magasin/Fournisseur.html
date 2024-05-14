@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %} 
+
+<div class="container">
+    <div class="col-md-12 text-center">
+        <h2>Manip Fournisseur......</h2>
+    </div> 
+    <form method='POST' class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Enregistrer</button>
+    </form> 
+    <h2>Liste des fournisseurs</h2>
+    <ul>
+        {% for fournisseur in liste_des_fournisseurs %}
+            <li>{{ fournisseur.nom }}</li> <!-- Assurez-vous d'adapter cela selon vos champs de modèle -->
+        {% endfor %}
+    </ul>
+</div>
+<style>
+    /* Styles for the container */
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styles for the form */
+    .post-form {
+        margin-bottom: 20px;
+    }
+
+    /* Styles for the submit button */
+    .btn-success {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+    /* Styles for the list of suppliers */
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+</style>
+
+{% endblock %}

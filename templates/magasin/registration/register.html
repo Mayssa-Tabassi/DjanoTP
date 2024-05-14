@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    /* Styles for signup container */
+    .signup-container {
+        text-align: center;
+        margin-top: 50px; /* Adjust as needed */
+    }
+
+    /* Style for form container */
+    form {
+        display: inline-block;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    /* Style for form fields */
+    table {
+        margin: 0 auto; /* Centering the table */
+    }
+
+    /* Style for form field labels */
+    td {
+        padding: 5px;
+    }
+
+    /* Style for form field inputs */
+    input[type="text"],
+    input[type="password"] {
+        width: 200px; /* Adjust as needed */
+        padding: 8px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px; /* Add margin to separate inputs */
+    }
+
+    /* Style for submit button */
+    button[type="submit"] {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    /* Style for links */
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Style for small text */
+    small {
+        display: block;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="signup-container">
+    <h2>S'inscrire</h2>
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {% for field in form %}
+                <tr>
+                    <td>{{ field.label_tag }}</td>
+                    <td>{{ field }}</td>
+                </tr>
+                {% for error in field.errors %}
+                    <tr><td></td><td class="alert alert-danger">{{ error }}</td></tr>
+                {% endfor %}
+            {% endfor %}
+        </table>
+        <button type="submit">S'inscrire</button>
+    </form>
+    <div>
+        <small>Déjà inscrit.e? <a href="{% url 'login' %}">Se connecter</a></small>
+    </div>
+</div>
+
+{% endblock %}

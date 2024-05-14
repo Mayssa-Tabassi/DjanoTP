@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .container2 {
+            margin-top: auto; /* Déplace le contenu vers le haut */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centre le contenu horizontalement */
+        }
+        .container1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        
+        .navbar {
+            background-color: blue;
+            color: white;
+            padding: 10px 0;
+        }
+        
+        .post-button {
+            background-color: blue;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 10px;
+            margin-top:5px;
+            display: inline-block; /* Affichez le bouton en ligne */
+            padding: 10px 20px; /* Ajoutez du rembourrage pour un meilleur aspect */
+            border: none; /* Supprimez la bordure */
+            border-radius: 5px; /* Arrondissez les coins */
+        }
+        
+        
+        .post-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .post-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 100px;
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .post-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        .post-card-content {
+            margin-top: 10px;
+        }
+        
+        .post-card-title {
+            font-weight: bold;
+        }
+        
+        .post-card-author {
+            color: black;
+        }
+    </style>
+    
+</head>
+<nav class="navbar">
+    <div class="container1">
+        <p>Bienvenue au blog de l'ISET </p>
+        <p>où vous pouvez publier vos envies</p>
+    </div>
+</nav>
+<body>
+
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+        <p>Author: {{ post.author }}</p>
+        <p>Status: {{ post.status }}</p>
+        <p>Created On: {{ post.created_on }}</p>
+        <p>Updated On: {{ post.updated_on }}</p>
+        <a href="{% url 'post_update' post.pk %}">Edit</a>
+        <a href="{% url 'post_delete' post.pk %}">Delete</a>
+    </div>
+</body>
+</html>

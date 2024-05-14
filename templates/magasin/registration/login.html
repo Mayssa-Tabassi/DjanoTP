@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    /* Styles for centering the login form */
+    .login-container {
+        text-align: center;
+        margin-top: 50px; /* Adjust as needed */
+    }
+
+    /* Style for form container */
+    form {
+        display: inline-block;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    /* Style for form fields */
+    table {
+        margin: 0 auto; /* Centering the table */
+    }
+
+    /* Style for form field labels */
+    td {
+        padding: 5px;
+    }
+
+    /* Style for form field inputs */
+    input[type="text"],
+    input[type="password"] {
+        padding: 8px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px; /* Add margin to separate inputs */
+    }
+
+    /* Style for submit button */
+    button[type="submit"] {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    /* Style for links */
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Style for small text */
+    small {
+        display: block;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="login-container">
+    <h2>Se connecter</h2>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <p class="alert alert-danger">{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+            <table>
+                {% for field in form %}
+                    <tr>
+                        <td>{{ field.label_tag }}</td>
+                        <td>{{ field }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <button type="submit">se connecter</button>
+        </form>
+    </div>
+    <div>
+        <small>
+            Pas encore inscrit.e?
+            <a href="{% url 'register' %}">
+                S'inscrire
+            </a>
+            <br>
+            Mot de passe oublié ?
+            <a href="{% url 'change_password' %}">
+                Renouveler mon mot de passe
+            </a>
+        </small>
+    </div>
+</div>
+
+{% endblock %}

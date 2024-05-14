@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    /* Styles for disconnected message */
+    .disconnected-message {
+        text-align: center;
+        margin-top: 50px; /* Adjust as needed */
+    }
+
+    /* Style for the reconnect link */
+    .reconnect-link {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .reconnect-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="disconnected-message">
+    <h2>Vous êtes déconnecté.</h2>
+    <a class="reconnect-link" href="{% url 'login' %}">Se reconnecter</a>
+</div>
+{% endblock %}
